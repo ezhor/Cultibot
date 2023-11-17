@@ -12,7 +12,7 @@ def generatePaths():
     global tmp
     global fileName
     
-    path = "./images/"+ dateString
+    path = "./images/"+ dateString + "/"
     fileName = str(currentDate.hour).zfill(2) + str(currentDate.minute).zfill(2) + ".jpeg"    
     if(not os.path.exists(path)):
         os.makedirs(path)
