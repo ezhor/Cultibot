@@ -9,8 +9,12 @@ token = config["Telegram"]["token"]
 imagesParentDirectory = "./images"
 
 async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    lastDay = os.listdir(imagesParentDirectory)[-1]
-    lastPicture = os.listdir(f"{imagesParentDirectory}/{lastDay}")[-1]
+    daysList = os.listdir(imagesParentDirectory)
+    daysList.sort()
+    lastDay = daysList[-1]
+    picturesList = os.listdir(f"{imagesParentDirectory}/{lastDay}")
+    picturesList.sort
+    lastPicture = picturesList[-1]
     imagePath = f"{imagesParentDirectory}/{lastDay}/{lastPicture}"
     await update.message.reply_photo(photo = imagePath, caption = f"Last picture\n{lastDay}\n{lastPicture[0:2]}:{lastPicture[2:4]}")
 
