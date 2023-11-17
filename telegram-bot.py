@@ -20,7 +20,9 @@ async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     imagePath = f"{imagesParentDirectory}/{lastDay}/{lastPicture}"
     await update.message.reply_photo(photo = imagePath, caption = f"#picture\n{lastDay}\n{lastPicture[0:2]}:{lastPicture[2:4]}")
 
-while True:
+app = None
+
+while app == None:
     try:
         app = ApplicationBuilder().token(token).build()        
     except Exception as e:
@@ -29,4 +31,5 @@ while True:
         pass
 
 app.add_handler(CommandHandler("picture", picture))
+print("Polling")
 app.run_polling()
