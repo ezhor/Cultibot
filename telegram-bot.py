@@ -33,5 +33,6 @@ while not internet:
 
 app = ApplicationBuilder().token(token).build()
 app.add_handler(CommandHandler("picture", picture))
+app.add_handler(CommandHandler("start", picture))
 print("Polling...")
 app.run_polling()
