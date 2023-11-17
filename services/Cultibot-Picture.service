@@ -1,0 +1,8 @@
+[Unit]
+Description=Cultibot Picture
+
+[Service]
+User=pi
+Type=oneshot
+ExecStart=/usr/bin/python3 /home/pi/cultibot/picture.py &
+WorkingDirectory=/home/pi/cultibot/

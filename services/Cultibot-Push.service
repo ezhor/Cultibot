@@ -1,0 +1,8 @@
+[Unit]
+Description=Cultibot Push
+
+[Service]
+User=pi
+Type=oneshot
+ExecStart=/home/pi/cultibot/push.sh &
+WorkingDirectory=/home/pi/cultibot/
