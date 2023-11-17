@@ -2,7 +2,7 @@ import configparser
 from telegram import Update, Bot
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
-import urllib.request
+from urllib.request import urlopen
 import time
 
 config = configparser.ConfigParser()
@@ -20,16 +20,18 @@ async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     imagePath = f"{imagesParentDirectory}/{lastDay}/{lastPicture}"
     await update.message.reply_photo(photo = imagePath, caption = f"#picture\n{lastDay}\n{lastPicture[0:2]}:{lastPicture[2:4]}")
 
-app = None
+internet = False
 
-while app == None:
+while not internet:
     try:
-        app = ApplicationBuilder().token(token).build()        
+        urlopen("http://www.google.com/").read()
+        internet = True
     except Exception as e:
         print(e)
         time.sleep(1)
         pass
 
+app = ApplicationBuilder().token(token).build()
 app.add_handler(CommandHandler("picture", picture))
-print("Polling")
+print("Polling...")
 app.run_polling()
