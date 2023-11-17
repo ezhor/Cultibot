@@ -3,7 +3,7 @@ from telegram import Update, Bot
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import os
 import urllib.request
-
+import time
 
 config = configparser.ConfigParser()
 config.read("../config.txt")
@@ -30,4 +30,5 @@ while True:
         app.run_polling()
     except Exception as e:
         print(e)
+        time.sleep(1)
         pass
