@@ -16,6 +16,7 @@ async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     picturesList.sort()
     lastPicture = picturesList[-1]
     imagePath = f"{imagesParentDirectory}/{lastDay}/{lastPicture}"
+    print(imagePath)
     await update.message.reply_photo(photo = imagePath, caption = f"Last picture\n{lastDay}\n{lastPicture[0:2]}:{lastPicture[2:4]}")
 
 async def timelapse(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
