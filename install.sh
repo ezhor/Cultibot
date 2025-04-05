@@ -1,4 +1,4 @@
-python -m venv cultibot
+python -m venv ./
 sudo apt install pip
 sudo pip install moviepy
 sudo pip install python-telegram-bot --upgrade
