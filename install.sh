@@ -1,3 +1,4 @@
+sudo apt install pip
 sudo pip install moviepy
 sudo pip install python-telegram-bot --upgrade
 sudo pip install opencv-python
