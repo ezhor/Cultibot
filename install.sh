@@ -7,6 +7,8 @@ sudo ./bin/pip install pytz
 
 sudo cp ./services/* /etc/systemd/system/
 
+sudo systemctl daemon-reload
+
 sudo systemctl enable Cilantro-Picture.timer
 sudo systemctl start Cilantro-Picture.timer
 sudo systemctl enable Cilantro-Telegram-Bot.service
