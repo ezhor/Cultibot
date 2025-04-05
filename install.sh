@@ -1,10 +1,9 @@
 python -m venv ./
-sudo apt install pip
-sudo pip install moviepy
-sudo pip install python-telegram-bot --upgrade
-sudo pip install opencv-python
-sudo pip install "python-telegram-bot[job-queue]"
-sudo pip install pytz
+sudo ./bin/pip install moviepy
+sudo ./bin/pip install python-telegram-bot --upgrade
+sudo ./bin/pip install opencv-python
+sudo ./bin/pip install "python-telegram-bot[job-queue]"
+sudo ./bin/pip install pytz
 
 sudo cp ./services/* /etc/systemd/system/
 
