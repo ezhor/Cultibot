@@ -1,4 +1,4 @@
-from moviepy.editor import *
+from moviepy import *
 import os
 import cv2
 import shutil
