@@ -1,12 +1,12 @@
-python -m venv ./
-sudo ./bin/pip install moviepy
-sudo ./bin/pip install python-telegram-bot --upgrade
-sudo ./bin/pip install opencv-python
-sudo ./bin/pip install "python-telegram-bot[job-queue]"
-sudo ./bin/pip install pytz
+sudo apt install pipx
+
+pipx install moviepy
+pipx install python-telegram-bot --upgrade
+pipx install opencv-python
+pipx install "python-telegram-bot[job-queue]"
+pipx install pytz
 
 sudo cp ./services/* /etc/systemd/system/
-
 sudo systemctl daemon-reload
 
 sudo systemctl enable Cultibot-Picture.timer
