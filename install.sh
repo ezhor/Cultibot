@@ -1,5 +1,4 @@
-sudo apt install pipx
-
+python -m venv ./
 source ./bin/activate
 
 pip install moviepy
