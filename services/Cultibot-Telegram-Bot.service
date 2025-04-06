@@ -4,7 +4,7 @@ Description=Cultibot Telegram Bot
 [Service]
 User=pi
 Type=oneshot
-ExecStart=/usr/bin/python3 /home/pi/cultibot/telegram-bot.py &
+ExecStart=./bin/python3 /home/pi/cultibot/telegram-bot.py &
 WorkingDirectory=/home/pi/cultibot/
 
 [Install]

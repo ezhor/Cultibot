@@ -4,6 +4,7 @@ source ./bin/activate
 pip install moviepy
 pip install python-telegram-bot --upgrade
 pip install opencv-python
+pip install opencv-contrib-python-headless
 pip install "python-telegram-bot[job-queue]"
 pip install pytz
 
