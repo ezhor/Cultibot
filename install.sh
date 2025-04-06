@@ -9,7 +9,7 @@ sudo cp ./services/* /etc/systemd/system/
 
 sudo systemctl daemon-reload
 
-sudo systemctl enable Cilantro-Picture.timer
-sudo systemctl start Cilantro-Picture.timer
-sudo systemctl enable Cilantro-Telegram-Bot.service
-sudo systemctl start Cilantro-Telegram-Bot.service
+sudo systemctl enable Cultibot-Picture.timer
+sudo systemctl start Cultibot-Picture.timer
+sudo systemctl enable Cultibot-Telegram-Bot.service
+sudo systemctl start Cultibot-Telegram-Bot.service
