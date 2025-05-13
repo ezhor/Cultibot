@@ -1,7 +1,7 @@
 import serial, time
 
 def currentMoistureRawLevel():
-        arduino = serial.Serial("COM3", 9600, timeout=10)
+        arduino = serial.Serial("/dev/ttyUSB0", 9600, timeout=10)
         time.sleep(5)
         arduino.reset_input_buffer()
         arduino.reset_output_buffer()
