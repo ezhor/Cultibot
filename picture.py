@@ -19,6 +19,7 @@ def generatePaths():
     dataFileName = fileName + ".csv"
     if(not os.path.exists(picturePath)):
         os.makedirs(picturePath)
+    if(not os.path.exists(dataPath)):
         os.makedirs(dataPath)
 
 
