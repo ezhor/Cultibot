@@ -8,12 +8,20 @@ import datetime
 import pytz
 from timelapse import makeCurrentDayTimelapse
 import shutil
+import moisture
 
 config = configparser.ConfigParser()
 config.read("../config.txt")
 token = config["Telegram"]["token"]
 imagesParentDirectory = "../cultibot-images"
+dataParentDirectory = "../cultibot-data"
 subscribersPath = "../subscribers"
+
+def moistureInfo(dataPath: str) -> str:
+    if(os.path.exists(dataPath)):
+        with open(dataPath, "r") as file:
+            return f"\nSoil moisture: {moisture.rawToNormalized(file.read())}%"
+    return ""
 
 async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     yearsList = os.listdir(imagesParentDirectory)
@@ -26,7 +34,9 @@ async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     picturesList.sort()
     lastPicture = picturesList[-1]
     imagePath = f"{imagesParentDirectory}/{lastYear}/{lastDay}/{lastPicture}"
-    await update.message.reply_photo(photo = imagePath, caption = f"#picture\n{lastDay}\n{lastPicture[0:2]}:{lastPicture[2:4]}")
+    dataPath = f"{dataParentDirectory}/{lastYear}/{lastDay}/{lastPicture}".replace("jpeg", "csv")
+
+    await update.message.reply_photo(photo = imagePath, caption = f"#picture\n{lastDay}\n{lastPicture[0:2]}:{lastPicture[2:4]}{moistureInfo(dataPath)}")
 
 async def sendTimelapse(context: ContextTypes.DEFAULT_TYPE) -> None:
     dateString = makeCurrentDayTimelapse()
