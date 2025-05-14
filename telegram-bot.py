@@ -20,7 +20,7 @@ subscribersPath = "../subscribers"
 def moistureInfo(dataPath: str) -> str:
     if(os.path.exists(dataPath)):
         with open(dataPath, "r") as file:
-            return f"\nSoil moisture: {moisture.rawToNormalized(file.read())}%"
+            return f"\nSoil moisture: {moisture.rawToNormalized(int(file.read()))}%"
     return ""
 
 async def picture(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
