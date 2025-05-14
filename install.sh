@@ -1,3 +1,5 @@
+sudo apt install python3-serial
+
 python -m venv ./
 source ./bin/activate
 
