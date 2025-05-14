@@ -1,6 +1,6 @@
 import serial, time
 
-def currentMoistureRawLevel():
+def currentMoistureRaw():
         arduino = serial.Serial("/dev/ttyUSB0", 9600, timeout=10)
         time.sleep(5)
         arduino.reset_input_buffer()
@@ -12,4 +12,4 @@ def currentMoistureRawLevel():
         return data
 
 if __name__ == "__main__":
-    print(str(currentMoistureRawLevel()))
+    print(str(currentMoistureRaw()))

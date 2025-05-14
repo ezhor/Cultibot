@@ -6,6 +6,7 @@ pip install python-telegram-bot --upgrade
 pip install opencv-contrib-python-headless
 pip install "python-telegram-bot[job-queue]"
 pip install pytz
+pip install pyserial
 
 deactivate
 
