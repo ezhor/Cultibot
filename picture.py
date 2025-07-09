@@ -1,7 +1,8 @@
 from datetime import datetime
-import subprocess
 import os
 import moisture
+from picamera2 import Picamera2
+import time
 
 currentDate = datetime.now()
 datePath = str(currentDate.year) +"/"+ str(currentDate.year) +"-"+ str(currentDate.month).zfill(2) +"-"+ str(currentDate.day).zfill(2)
@@ -24,8 +25,23 @@ def generatePaths():
 
 
 def takePicture():
-    process = subprocess.Popen("libcamera-jpeg --width 1080 --height 1920 -o " + picturePath + pictureFileName, shell=True, stdout=subprocess.PIPE)
-    process.wait()
+    camera = None
+
+    try:
+        camera = Picamera2()
+        camera_config = camera.create_still_configuration(main={"size": (1920, 1080)})
+        camera.configure(camera_config)
+        camera.start()
+        time.sleep(2)
+
+        camera.capture_file(picturePath + pictureFileName)
+    
+    finally:
+        if camera is not None:
+            try:
+                camera.stop()
+            except Exception as stop_e:
+                print(str(stop_e))
 
 def saveData():
     with open(dataPath + dataFileName, "w") as file:
@@ -37,4 +53,7 @@ def main():
         takePicture()
         saveData()
 
-main()
+if __name__ == "__main__":
+    picturePath = "./"
+    pictureFileName = "test.jpeg"
+    takePicture()
