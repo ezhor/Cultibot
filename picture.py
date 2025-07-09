@@ -54,6 +54,4 @@ def main():
         saveData()
 
 if __name__ == "__main__":
-    picturePath = "./"
-    pictureFileName = "test.jpeg"
-    takePicture()
+    main()
