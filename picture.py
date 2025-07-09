@@ -29,7 +29,7 @@ def takePicture():
 
     try:
         camera = Picamera2()
-        camera_config = camera.create_still_configuration(main={"size": (1920, 1080)})
+        camera_config = camera.create_still_configuration(main={"size": (1080, 1920)})
         camera.configure(camera_config)
         camera.start()
         time.sleep(2)
